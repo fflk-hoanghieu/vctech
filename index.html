@@ -1,0 +1,2209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08080b">
+
+<title>Developer Studio | Projects & Technology</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #08080b;
+    --card: #111116;
+    --card2: #15151c;
+    --border: #282831;
+    --purple: #985cff;
+    --blue: #448cff;
+    --text: #ffffff;
+    --muted: #9999a8;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+
+/* LANGUAGE SCREEN */
+
+.language-screen {
+    position: fixed;
+    inset: 0;
+    background: #08080b;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.language-box {
+    width: 100%;
+    max-width: 440px;
+    background: #111116;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 35px;
+    text-align: center;
+}
+
+.language-logo {
+    width: 65px;
+    height: 65px;
+    border: 1px solid #777;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    font-size: 35px;
+    font-weight: 800;
+    color: var(--purple);
+    border-radius: 12px;
+}
+
+.language-box h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.language-box p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.language-option {
+    width: 100%;
+    padding: 17px;
+    margin-top: 12px;
+    border: 1px solid var(--border);
+    background: #191920;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: .3s;
+}
+
+.language-option:hover {
+    border-color: var(--purple);
+    background: #20172d;
+    transform: translateY(-2px);
+}
+
+/* HEADER */
+
+header {
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    border-bottom: 1px solid #202027;
+    position: sticky;
+    top: 0;
+    background: rgba(8,8,11,.95);
+    backdrop-filter: blur(15px);
+    z-index: 100;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 43px;
+    height: 43px;
+    border: 1px solid #777;
+    border-radius: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--purple);
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.logo-name {
+    font-weight: 800;
+    font-size: 19px;
+}
+
+.logo-name span {
+    color: var(--purple);
+}
+
+.menu-button {
+    background: transparent;
+    border: 1px solid var(--border);
+    width: 43px;
+    height: 43px;
+    color: white;
+    font-size: 23px;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.menu-button:hover {
+    border-color: var(--purple);
+}
+
+/* MENU */
+
+.menu {
+    display: none;
+    position: absolute;
+    top: 73px;
+    right: 7%;
+    width: 210px;
+    background: #14141a;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 15px 40px #000;
+}
+
+.menu.active {
+    display: block;
+}
+
+.menu button {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    background: transparent;
+    border: none;
+    color: white;
+    text-align: left;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.menu button:hover {
+    background: #26202f;
+    color: var(--purple);
+}
+
+/* PAGE SYSTEM */
+
+.page {
+    display: none;
+    min-height: 80vh;
+    animation: appear .35s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HOME */
+
+.hero {
+    max-width: 1100px;
+    margin: auto;
+    padding: 105px 25px 80px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 1px solid #45325f;
+    background: #1b1427;
+    color: #b98cff;
+    font-size: 12px;
+    border-radius: 30px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 7vw, 70px);
+    line-height: 1.15;
+    font-weight: 800;
+    max-width: 850px;
+    margin-bottom: 25px;
+}
+
+.gradient {
+    background: linear-gradient(90deg,#a16aff,#559bff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+    max-width: 750px;
+    color: #a3a3b1;
+    line-height: 2;
+    font-size: 15px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin-top: 35px;
+}
+
+.btn {
+    padding: 13px 21px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: #17171e;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: var(--purple);
+    border-color: var(--purple);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.15);
+}
+
+/* HOME INFORMATION */
+
+.home-section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px;
+}
+
+.section-heading {
+    margin-bottom: 30px;
+}
+
+.section-heading h2 {
+    font-size: 27px;
+    margin-bottom: 12px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+    gap: 17px;
+}
+
+.home-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.home-card .icon {
+    font-size: 27px;
+    margin-bottom: 18px;
+}
+
+.home-card h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.home-card p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--muted);
+}
+
+/* PROJECT PAGE */
+
+.content-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 65px 25px;
+}
+
+.page-title {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.page-subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    gap: 18px;
+}
+
+.project-card {
+    background: linear-gradient(145deg,#15151c,#101014);
+    border: 1px solid var(--border);
+    padding: 27px;
+    border-radius: 13px;
+    transition: .3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: #7751aa;
+}
+
+.project-icon {
+    width: 49px;
+    height: 49px;
+    background: #211832;
+    border: 1px solid #44305e;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    margin-bottom: 22px;
+}
+
+.project-card h3 {
+    font-size: 17px;
+    margin-bottom: 13px;
+}
+
+.project-card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.9;
+}
+
+/* PROFILE */
+
+.profile-title {
+    margin-top: 65px;
+    margin-bottom: 25px;
+    font-size: 25px;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(290px,1fr));
+    gap: 20px;
+}
+
+.profile-card {
+    background: #111116;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 27px;
+}
+
+.profile-logo {
+    width: 65px;
+    height: 65px;
+    border: 1px solid #85858d;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    font-weight: 800;
+    color: var(--purple);
+    margin-bottom: 20px;
+}
+
+.profile-card h3 {
+    font-size: 21px;
+    margin-bottom: 18px;
+}
+
+.profile-info {
+    color: #b1b1bd;
+    font-size: 13px;
+    line-height: 2.2;
+}
+
+.profile-info strong {
+    color: white;
+}
+
+.profile-description {
+    margin-top: 17px;
+    padding-top: 17px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.9;
+}
+
+/* CONTACT BUTTONS */
+
+.contact-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+    padding: 20px;
+    background: #111116;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.contact-title {
+    width: 100%;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 5px;
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background: #191920;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.contact-btn:hover {
+    border-color: var(--purple);
+    color: #c5a5ff;
+}
+
+/* CODE PAGE */
+
+.code-container {
+    background: #101014;
+    border: 1px solid #30303a;
+    border-radius: 13px;
+    overflow: hidden;
+}
+
+.code-header {
+    background: #18181f;
+    border-bottom: 1px solid #30303a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+}
+
+.code-header h3 {
+    font-family: monospace;
+    font-size: 14px;
+    color: #c7a4ff;
+}
+
+.copy-btn {
+    background: #292037;
+    border: 1px solid #574078;
+    color: white;
+    padding: 8px 13px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.code-content {
+    overflow-x: auto;
+    padding: 20px 0;
+    max-height: 650px;
+}
+
+.code-line {
+    display: flex;
+    min-width: 650px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    line-height: 2.1;
+}
+
+.line-number {
+    width: 55px;
+    flex-shrink: 0;
+    text-align: right;
+    padding-right: 18px;
+    color: #656574;
+    user-select: none;
+}
+
+.code-text {
+    color: #b8c8e5;
+    white-space: pre;
+}
+
+.code-comment {
+    color: #729a83;
+}
+
+.code-keyword {
+    color: #c792ea;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid #25252c;
+    margin-top: 80px;
+    padding: 30px 20px;
+    text-align: center;
+    color: #777783;
+    font-size: 12px;
+    line-height: 2;
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    header {
+        padding: 0 20px;
+    }
+
+    .hero {
+        padding-top: 75px;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+    }
+
+    .content-container {
+        padding: 45px 18px;
+    }
+
+    .page-title {
+        font-size: 29px;
+    }
+
+    .profile-grid,
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LANGUAGE SELECTION -->
+
+<div class="language-screen" id="languageScreen">
+
+    <div class="language-box">
+
+        <div class="language-logo">H</div>
+
+        <h1>Select Your Language</h1>
+
+        <p>Please select your preferred language to continue.</p>
+
+        <button class="language-option" onclick="selectLanguage('vi')">
+            🇻🇳 Vietnamese
+        </button>
+
+        <button class="language-option" onclick="selectLanguage('en')">
+            🌐 English
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo-area">
+
+        <div class="logo">H</div>
+
+        <div class="logo-name">
+            Developer<span>Studio</span>
+        </div>
+
+    </div>
+
+    <button class="menu-button" onclick="toggleMenu()">
+        ☰
+    </button>
+
+    <div class="menu" id="menu">
+
+        <button onclick="showPage('home')">
+            <span data-i18n="menuHome">Home</span>
+        </button>
+
+        <button onclick="showPage('projects')">
+            <span data-i18n="menuProjects">Projects & Profiles</span>
+        </button>
+
+        <button onclick="showPage('code')">
+            <span data-i18n="menuCode">Source Code</span>
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- PAGE 1: HOME -->
+
+<main>
+
+<section class="page active" id="home">
+
+    <div class="hero">
+
+        <div class="tag" data-i18n="tag">
+            ✦ DEVELOPMENT & TECHNOLOGY
+        </div>
+
+        <h1>
+            <span data-i18n="hero1">Building Digital</span>
+            <br>
+            <span class="gradient" data-i18n="hero2">Experiences.</span>
+        </h1>
+
+        <p class="hero-description" data-i18n="heroDescription">
+            Welcome to our Developer Studio. We specialize in website development,
+            Discord bot programming, custom software structures and digital solutions.
+            Our goal is to transform ideas into functional, modern and professional
+            digital products. Every project is developed with attention to detail,
+            performance, functionality and user experience.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="btn btn-primary" onclick="showPage('projects')" data-i18n="explore">
+                Explore Projects →
+            </button>
+
+            <button class="btn" onclick="showPage('code')" data-i18n="viewCode">
+                View Source Code
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="home-section">
+
+        <div class="section-heading">
+
+            <h2 data-i18n="aboutTitle">
+                About Our Development
+            </h2>
+
+            <p data-i18n="aboutDescription">
+                We focus on creating digital products that combine functionality,
+                modern design and reliable performance. From custom websites
+                to Discord bots, each project is developed according to
+                the requirements and expectations of our clients.
+            </p>
+
+        </div>
+
+
+        <div class="home-grid">
+
+            <div class="home-card">
+
+                <div class="icon">⌨️</div>
+
+                <h3 data-i18n="homeCard1Title">
+                    Website Development
+                </h3>
+
+                <p data-i18n="homeCard1">
+                    Creating professional websites with custom interfaces,
+                    organized structures and features designed around
+                    client requirements.
+                </p>
+
+            </div>
+
+
+            <div class="home-card">
+
+                <div class="icon">🤖</div>
+
+                <h3 data-i18n="homeCard2Title">
+                    Discord Bot Development
+                </h3>
+
+                <p data-i18n="homeCard2">
+                    Building Discord bots with custom commands,
+                    automated functions and server management features.
+                </p>
+
+            </div>
+
+
+            <div class="home-card">
+
+                <div class="icon">⚙️</div>
+
+                <h3 data-i18n="homeCard3Title">
+                    Programming & Systems
+                </h3>
+
+                <p data-i18n="homeCard3">
+                    Developing source code, application structures,
+                    bot systems and customized programming solutions.
+                </p>
+
+            </div>
+
+
+            <div class="home-card">
+
+                <div class="icon">🚀</div>
+
+                <h3 data-i18n="homeCard4Title">
+                    Continuous Development
+                </h3>
+
+                <p data-i18n="homeCard4">
+                    Improving projects through updates, optimization,
+                    maintenance and continuous technical development.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="home-section" style="margin-top:65px">
+
+        <div class="section-heading">
+
+            <h2 data-i18n="philosophyTitle">
+                Our Development Philosophy
+            </h2>
+
+            <p data-i18n="philosophyDescription">
+                Technology is more than writing lines of code.
+                It requires creativity, technical knowledge, problem-solving
+                skills and continuous learning. We believe that every
+                successful project begins with a clear idea, a well-organized
+                structure and a commitment to quality.
+                Our development approach focuses on understanding
+                client requirements, building suitable solutions,
+                testing functionality and improving the final product.
+                We aim to create websites and bots that are not only
+                visually appealing but also practical and reliable.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 2: PROJECTS & PROFILES -->
+
+<section class="page" id="projects">
+
+    <div class="content-container">
+
+        <h1 class="page-title" data-i18n="projectTitle">
+            Projects & Services
+        </h1>
+
+        <p class="page-subtitle" data-i18n="projectSubtitle">
+            Discover our development services, technical projects
+            and customized digital solutions.
+        </p>
+
+
+        <div class="project-grid">
+
+
+            <!-- PROJECT 1 -->
+
+            <div class="project-card">
+
+                <div class="project-icon">⌨️</div>
+
+                <h3 data-i18n="project1Title">
+                    Website Development
+                </h3>
+
+                <p data-i18n="project1">
+                    A project focused on creating websites according
+                    to customer requirements. Features, interfaces
+                    and website functionality are developed to match
+                    the specifications provided by the client.
+                </p>
+
+            </div>
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="project-card">
+
+                <div class="project-icon">🤖</div>
+
+                <h3 data-i18n="project2Title">
+                    Discord Bot Development
+                </h3>
+
+                <p data-i18n="project2">
+                    Creating bots for Discord servers according
+                    to customer requirements. The bot avatar,
+                    commands and the functions of each command
+                    are provided or specified by the customer.
+                </p>
+
+            </div>
+
+
+            <!-- PROJECT 3 -->
+
+            <div class="project-card">
+
+                <div class="project-icon">🧩</div>
+
+                <h3 data-i18n="project3Title">
+                    Bot Structure & Systems
+                </h3>
+
+                <p data-i18n="project3">
+                    Designing bot structures, command systems,
+                    application logic and organized source code
+                    for customized Discord bot projects.
+                </p>
+
+            </div>
+
+
+            <!-- PROJECT 4 -->
+
+            <div class="project-card">
+
+                <div class="project-icon">🎨</div>
+
+                <h3 data-i18n="project4Title">
+                    Interface Design
+                </h3>
+
+                <p data-i18n="project4">
+                    Designing attractive and modern interfaces
+                    for websites and bots. Designs follow the
+                    customer's preferred theme, style and requirements.
+                </p>
+
+            </div>
+
+
+            <!-- PROJECT 5 -->
+
+            <div class="project-card">
+
+                <div class="project-icon">🛠️</div>
+
+                <h3 data-i18n="project5Title">
+                    Bot Deployment & Maintenance
+                </h3>
+
+                <p data-i18n="project5">
+                    Setting up, launching and maintaining bot systems.
+                    Providing technical maintenance services and
+                    continuous operation solutions according to
+                    the agreed service conditions.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROFILES -->
+
+        <h2 class="profile-title" data-i18n="profileTitle">
+            Developer Profiles
+        </h2>
+
+
+        <div class="profile-grid">
+
+
+            <!-- HIEU -->
+
+            <div class="profile-card">
+
+                <div class="profile-logo">
+                    H
+                </div>
+
+                <h3>Trọng Hiếu</h3>
+
+                <div class="profile-info">
+
+                    <div>
+                        <strong data-i18n="name">Name:</strong>
+                        Trọng Hiếu
+                    </div>
+
+                    <div>
+                        <strong data-i18n="country">Country:</strong>
+                        VietNam
+                    </div>
+
+                    <div>
+                        <strong data-i18n="birth">Birth year:</strong>
+                        2011
+                    </div>
+
+                    <div>
+                        <strong data-i18n="specialty">Specialization:</strong>
+                        <span data-i18n="hieuSpecialty">
+                            Programming
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="profile-description" data-i18n="hieuDescription">
+                    - Writing source code.<br>
+                    - Creating bot structures.<br>
+                    - Developing website structures.<br>
+                    - Programming bot commands.<br>
+                    - Developing bot functionality.<br>
+                    - Website development.<br>
+                    - Bot deployment and launching.
+                </div>
+
+            </div>
+
+
+            <!-- DARK -->
+
+            <div class="profile-card">
+
+                <div class="profile-logo">
+                    D
+                </div>
+
+                <h3>Dark</h3>
+
+                <div class="profile-info">
+
+                    <div>
+                        <strong data-i18n="name">Name:</strong>
+                        Dark
+                    </div>
+
+                    <div>
+                        <strong data-i18n="country">Country:</strong>
+                        Bangladesh
+                    </div>
+
+                    <div>
+                        <strong data-i18n="birth">Birth year:</strong>
+                        2005
+                    </div>
+
+                    <div>
+                        <strong data-i18n="specialty">Specialization:</strong>
+                        <span data-i18n="darkSpecialty">
+                            Bot & Website Development
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="profile-description" data-i18n="darkDescription">
+                    - Maintaining bot operation 24/7 (annual paid service).<br>
+                    - Website and bot programming.<br>
+                    - Creating bot and website structures.<br>
+                    - Designing attractive interfaces.<br>
+                    - Developing designs based on customer requirements.<br>
+                    - Creating modern and professional digital experiences.
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CONTACT -->
+
+        <div class="contact-area">
+
+            <div class="contact-title" data-i18n="contactTitle">
+                CONTACT & COMMUNITY
+            </div>
+
+            <a class="contact-btn"
+               href="https://discord.gg/zddBHkumQ"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                💬 Discord Server
+
+            </a>
+
+            <a class="contact-btn"
+               href="https://zalo.me/84327978429"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                📱 Zalo Contact
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 3: SOURCE CODE -->
+
+<section class="page" id="code">
+
+    <div class="content-container">
+
+        <h1 class="page-title" data-i18n="codeTitle">
+            Source Code
+        </h1>
+
+        <p class="page-subtitle" data-i18n="codeSubtitle">
+            Explore our JavaScript development source code.
+            This code sample contains 200 unique lines created
+            for the Developer Studio project.
+        </p>
+
+
+        <div class="code-container">
+
+            <div class="code-header">
+
+                <h3>📄 java.scrip</h3>
+
+                <button class="copy-btn" onclick="copyCode()" data-i18n="copy">
+                    Copy Code
+                </button>
+
+            </div>
+
+            <div class="code-content" id="codeContent">
+
+                <!-- JAVASCRIPT CODE GENERATED HERE -->
+
+            </div>
+
+        </div>
+
+
+        <div class="contact-area">
+
+            <div class="contact-title" data-i18n="contactTitle">
+                CONTACT & COMMUNITY
+            </div>
+
+            <a class="contact-btn"
+               href="https://discord.gg/zddBHkumQ"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                💬 Discord Server
+
+            </a>
+
+            <a class="contact-btn"
+               href="https://zalo.me/84327978429"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                📱 Zalo Contact
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div>
+        © 2026 Developer Studio.
+    </div>
+
+    <div data-i18n="footer">
+        Designed for creativity, technology and development.
+    </div>
+
+</footer>
+
+
+<script>
+
+/* PAGE NAVIGATION */
+
+function showPage(pageId) {
+
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
+
+    document.getElementById(pageId).classList.add('active');
+
+    document.getElementById('menu').classList.remove('active');
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+
+}
+
+
+function toggleMenu() {
+
+    document.getElementById('menu').classList.toggle('active');
+
+}
+
+
+/* LANGUAGE SYSTEM */
+
+const translations = {
+
+vi: {
+
+menuHome: "Trang chủ",
+menuProjects: "Dự án & Profile",
+menuCode: "Mã nguồn",
+
+tag: "✦ LẬP TRÌNH & CÔNG NGHỆ",
+
+hero1: "Kiến tạo trải nghiệm",
+hero2: "Kỹ thuật số.",
+
+heroDescription:
+"Chào mừng bạn đến với Developer Studio. Chúng tôi tập trung vào phát triển website, lập trình bot Discord, xây dựng cấu trúc hệ thống và các giải pháp kỹ thuật số theo yêu cầu. Mục tiêu của chúng tôi là biến những ý tưởng thành các sản phẩm kỹ thuật số hiện đại, hoạt động hiệu quả và có tính ứng dụng cao. Mỗi dự án đều được chú trọng về giao diện, chức năng, hiệu suất và trải nghiệm người dùng.",
+
+explore: "Khám phá dự án →",
+viewCode: "Xem mã nguồn",
+
+aboutTitle: "Giới thiệu về hoạt động phát triển",
+
+aboutDescription:
+"Chúng tôi tập trung xây dựng các sản phẩm kỹ thuật số kết hợp giữa chức năng, thiết kế hiện đại và hiệu suất ổn định. Từ website theo yêu cầu đến bot Discord, mỗi dự án đều được phát triển dựa trên yêu cầu và mong muốn của khách hàng.",
+
+homeCard1Title: "Phát triển Website",
+homeCard1:
+"Xây dựng website chuyên nghiệp với giao diện tùy chỉnh, cấu trúc rõ ràng và các tính năng được thiết kế theo yêu cầu khách hàng.",
+
+homeCard2Title: "Phát triển Bot Discord",
+homeCard2:
+"Lập trình bot Discord với các lệnh tùy chỉnh, chức năng tự động hóa và các tính năng quản lý máy chủ.",
+
+homeCard3Title: "Lập trình & Hệ thống",
+homeCard3:
+"Phát triển mã nguồn, cấu trúc ứng dụng, hệ thống bot và các giải pháp lập trình theo yêu cầu.",
+
+homeCard4Title: "Phát triển liên tục",
+homeCard4:
+"Cải thiện dự án thông qua cập nhật, tối ưu hóa, bảo trì và phát triển kỹ thuật liên tục.",
+
+philosophyTitle: "Triết lý phát triển",
+
+philosophyDescription:
+"Công nghệ không chỉ đơn thuần là việc viết những dòng mã. Nó đòi hỏi sự sáng tạo, kiến thức chuyên môn, khả năng giải quyết vấn đề và tinh thần học hỏi không ngừng. Chúng tôi tin rằng một dự án thành công luôn bắt đầu từ ý tưởng rõ ràng, cấu trúc hợp lý và sự cam kết về chất lượng. Quy trình phát triển tập trung vào việc tìm hiểu yêu cầu khách hàng, xây dựng giải pháp phù hợp, kiểm tra chức năng và cải thiện sản phẩm hoàn thiện. Mục tiêu là tạo ra những website và bot không chỉ đẹp mắt mà còn hữu ích và hoạt động ổn định.",
+
+projectTitle: "Dự án & Dịch vụ",
+
+projectSubtitle:
+"Khám phá các dịch vụ phát triển, dự án kỹ thuật và giải pháp kỹ thuật số theo yêu cầu.",
+
+project1Title: "Phát triển Website",
+project1:
+"Dự án tạo website theo yêu cầu của khách hàng. Các tính năng, giao diện và hoạt động của website được phát triển chính xác theo những yêu cầu và thông số mà khách hàng cung cấp.",
+
+project2Title: "Phát triển Bot Discord",
+project2:
+"Dự án tạo bot cho các server Discord theo yêu cầu. Ảnh đại diện bot, các lệnh bot và tác dụng của từng lệnh sẽ do khách hàng cung cấp hoặc chỉ định.",
+
+project3Title: "Cấu trúc & Hệ thống Bot",
+project3:
+"Thiết kế cấu trúc bot, hệ thống lệnh, logic ứng dụng và mã nguồn có tổ chức cho các dự án bot Discord theo yêu cầu.",
+
+project4Title: "Thiết kế giao diện",
+project4:
+"Thiết kế giao diện hiện đại và đẹp mắt cho website và bot. Thiết kế tuân theo chủ đề, phong cách và tiêu chí mà khách hàng yêu cầu.",
+
+project5Title: "Khởi chạy & Bảo trì Bot",
+project5:
+"Thiết lập, khởi chạy và duy trì hệ thống bot. Cung cấp dịch vụ bảo trì kỹ thuật và giải pháp vận hành liên tục theo thỏa thuận dịch vụ.",
+
+profileTitle: "Thông tin Developer",
+
+name: "Tên:",
+country: "Quốc gia:",
+birth: "Sinh năm:",
+specialty: "Chuyên về:",
+
+hieuSpecialty: "Viết code",
+
+hieuDescription:
+"- Viết mã nguồn.<br>- Tạo cấu trúc bot.<br>- Tạo cấu trúc website.<br>- Lập trình lệnh bot.<br>- Phát triển tác dụng của bot.<br>- Phát triển website.<br>- Khởi chạy và triển khai bot.",
+
+darkSpecialty: "Phát triển Bot & Website",
+
+darkDescription:
+"- Duy trì bot hoạt động 24/7 (dịch vụ tính phí theo năm).<br>- Viết code website và bot.<br>- Xây dựng cấu trúc bot và website.<br>- Thiết kế giao diện đẹp mắt.<br>- Phát triển thiết kế theo yêu cầu khách hàng.<br>- Tạo trải nghiệm kỹ thuật số hiện đại và chuyên nghiệp.",
+
+contactTitle: "LIÊN HỆ & CỘNG ĐỒNG",
+
+codeTitle: "Mã nguồn",
+
+codeSubtitle:
+"Khám phá mã nguồn JavaScript của dự án Developer Studio. Bảng code này bao gồm 200 dòng code khác nhau được xây dựng cho dự án.",
+
+copy: "Sao chép code",
+
+footer: "Thiết kế dành cho sáng tạo, công nghệ và phát triển."
+
+},
+
+
+en: {
+
+menuHome: "Home",
+menuProjects: "Projects & Profiles",
+menuCode: "Source Code",
+
+tag: "✦ DEVELOPMENT & TECHNOLOGY",
+
+hero1: "Building Digital",
+hero2: "Experiences.",
+
+heroDescription:
+"Welcome to Developer Studio. We specialize in website development, Discord bot programming, system architecture and customized digital solutions. Our goal is to transform ideas into modern, functional and practical digital products. Every project receives attention to interface design, functionality, performance and user experience.",
+
+explore: "Explore Projects →",
+viewCode: "View Source Code",
+
+aboutTitle: "About Our Development",
+
+aboutDescription:
+"We focus on building digital products that combine functionality, modern design and reliable performance. From custom websites to Discord bots, each project is developed according to client requirements and expectations.",
+
+homeCard1Title: "Website Development",
+homeCard1:
+"Creating professional websites with custom interfaces, organized structures and features designed around client requirements.",
+
+homeCard2Title: "Discord Bot Development",
+homeCard2:
+"Building Discord bots with custom commands, automated functions and server management features.",
+
+homeCard3Title: "Programming & Systems",
+homeCard3:
+"Developing source code, application structures, bot systems and customized programming solutions.",
+
+homeCard4Title: "Continuous Development",
+homeCard4:
+"Improving projects through updates, optimization, maintenance and continuous technical development.",
+
+philosophyTitle: "Our Development Philosophy",
+
+philosophyDescription:
+"Technology is more than writing lines of code. It requires creativity, technical knowledge, problem-solving skills and continuous learning. We believe that every successful project begins with a clear idea, a well-organized structure and a commitment to quality. Our development approach focuses on understanding client requirements, building suitable solutions, testing functionality and improving the final product. We aim to create websites and bots that are not only visually appealing but also practical and reliable.",
+
+projectTitle: "Projects & Services",
+
+projectSubtitle:
+"Discover our development services, technical projects and customized digital solutions.",
+
+project1Title: "Website Development",
+project1:
+"A project focused on creating websites according to customer requirements. Features, interfaces and website functionality are developed to match the specifications provided by the client.",
+
+project2Title: "Discord Bot Development",
+project2:
+"Creating bots for Discord servers according to customer requirements. The bot avatar, commands and the functions of each command are provided or specified by the customer.",
+
+project3Title: "Bot Structure & Systems",
+project3:
+"Designing bot structures, command systems, application logic and organized source code for customized Discord bot projects.",
+
+project4Title: "Interface Design",
+project4:
+"Designing attractive and modern interfaces for websites and bots. Designs follow the customer's preferred theme, style and requirements.",
+
+project5Title: "Bot Deployment & Maintenance",
+project5:
+"Setting up, launching and maintaining bot systems. Providing technical maintenance services and continuous operation solutions according to the agreed service conditions.",
+
+profileTitle: "Developer Profiles",
+
+name: "Name:",
+country: "Country:",
+birth: "Birth year:",
+specialty: "Specialization:",
+
+hieuSpecialty: "Programming",
+
+hieuDescription:
+"- Writing source code.<br>- Creating bot structures.<br>- Developing website structures.<br>- Programming bot commands.<br>- Developing bot functionality.<br>- Website development.<br>- Bot deployment and launching.",
+
+darkSpecialty: "Bot & Website Development",
+
+darkDescription:
+"- Maintaining bot operation 24/7 (annual paid service).<br>- Website and bot programming.<br>- Creating bot and website structures.<br>- Designing attractive interfaces.<br>- Developing designs based on customer requirements.<br>- Creating modern and professional digital experiences.",
+
+contactTitle: "CONTACT & COMMUNITY",
+
+codeTitle: "Source Code",
+
+codeSubtitle:
+"Explore our JavaScript development source code. This code sample contains 200 unique lines created for the Developer Studio project.",
+
+copy: "Copy Code",
+
+footer: "Designed for creativity, technology and development."
+
+}
+
+};
+
+
+/* APPLY LANGUAGE */
+
+function applyLanguage(lang) {
+
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+
+        const key = element.getAttribute('data-i18n');
+
+        if (translations[lang][key]) {
+            element.innerHTML = translations[lang][key];
+        }
+
+    });
+
+    document.documentElement.lang = lang === 'vi' ? 'vi' : 'en';
+
+}
+
+
+/* SELECT LANGUAGE */
+
+function selectLanguage(lang) {
+
+    localStorage.setItem('developerLanguage', lang);
+
+    applyLanguage(lang);
+
+    document.getElementById('languageScreen').style.display = 'none';
+
+}
+
+
+/* REMEMBER LANGUAGE */
+
+window.addEventListener('DOMContentLoaded', function() {
+
+    const savedLanguage = localStorage.getItem('developerLanguage');
+
+    if (savedLanguage === 'vi' || savedLanguage === 'en') {
+
+        applyLanguage(savedLanguage);
+
+        document.getElementById('languageScreen').style.display = 'none';
+
+    }
+
+});
+
+
+/* GENERATE 200 JAVASCRIPT LINES */
+
+const codeLines = [
+
+"// DEVELOPER STUDIO - JAVASCRIPT SOURCE CODE",
+
+"// Created by Trong Hieu & Dark",
+
+"// Project: Website and Discord Bot Development",
+
+"",
+
+"const developerStudio = {",
+
+"    name: 'Developer Studio',",
+
+"    creator: 'Trong Hieu',",
+
+"    partner: 'Dark',",
+
+"    language: 'JavaScript',",
+
+"    version: '1.0.0',",
+
+"    year: 2026,",
+
+"    active: true",
+
+"};",
+
+"",
+
+"function initializeStudio() {",
+
+"    console.log('Developer Studio initialized');",
+
+"    return developerStudio.active;",
+
+"}",
+
+"",
+
+"function getDeveloper() {",
+
+"    return developerStudio.creator;",
+
+"}",
+
+"",
+
+"function getPartner() {",
+
+"    return developerStudio.partner;",
+
+"}",
+
+"",
+
+"const projectInformation = {",
+
+"    website: true,",
+
+"    discordBot: true,",
+
+"    customCode: true,",
+
+"    interfaceDesign: true,",
+
+"    maintenance: true",
+
+"};",
+
+"",
+
+"function createWebsite(name) {",
+
+"    return {",
+
+"        projectName: name,",
+
+"        developer: 'Trong Hieu',",
+
+"        status: 'Development'",
+
+"    };",
+
+"}",
+
+"",
+
+"function createDiscordBot(name) {",
+
+"    return {",
+
+"        botName: name,",
+
+"        developer: 'Trong Hieu',",
+
+"        partner: 'Dark',",
+
+"        status: 'Created'",
+
+"    };",
+
+"}",
+
+"",
+
+"function getProjectStatus() {",
+
+"    return 'Project development is active';",
+
+"}",
+
+"",
+
+"const websiteSettings = {",
+
+"    responsive: true,",
+
+"    darkMode: true,",
+
+"    customDesign: true,",
+
+"    optimized: true",
+
+"};",
+
+"",
+
+"function checkWebsiteSettings() {",
+
+"    return websiteSettings.responsive && websiteSettings.optimized;",
+
+"}",
+
+"",
+
+"const botSettings = {",
+
+"    commands: [],",
+
+"    prefix: '!',",
+
+"    online: true,",
+
+"    maintenance: false",
+
+"};",
+
+"",
+
+"function registerCommand(command) {",
+
+"    botSettings.commands.push(command);",
+
+"    return botSettings.commands.length;",
+
+"}",
+
+"",
+
+"function getBotCommands() {",
+
+"    return botSettings.commands;",
+
+"}",
+
+"",
+
+"function startBot() {",
+
+"    botSettings.online = true;",
+
+"    return 'Bot started successfully';",
+
+"}",
+
+"",
+
+"function stopBot() {",
+
+"    botSettings.online = false;",
+
+"    return 'Bot stopped';",
+
+"}",
+
+"",
+
+"function checkBotStatus() {",
+
+"    return botSettings.online ? 'Online' : 'Offline';",
+
+"}",
+
+"",
+
+"const developerProfiles = {",
+
+"    hieu: {",
+
+"        name: 'Trong Hieu',",
+
+"        country: 'Vietnam',",
+
+"        birthYear: 2011,",
+
+"        specialty: 'Programming'",
+
+"    },",
+
+"    dark: {",
+
+"        name: 'Dark',",
+
+"        country: 'Bangladesh',",
+
+"        birthYear: 2005,",
+
+"        specialty: 'Bot and Website Development'",
+
+"    }",
+
+"};",
+
+"",
+
+"function getHieuProfile() {",
+
+"    return developerProfiles.hieu;",
+
+"}",
+
+"",
+
+"function getDarkProfile() {",
+
+"    return developerProfiles.dark;",
+
+"}",
+
+"",
+
+"function validateProject(project) {",
+
+"    return project && project.length > 0;",
+
+"}",
+
+"",
+
+"function calculateProjectProgress(completed, total) {",
+
+"    if (total === 0) return 0;",
+
+"    return Math.round((completed / total) * 100);",
+
+"}",
+
+"",
+
+"const interfaceSettings = {",
+
+"    background: '#08080b',",
+
+"    primary: '#985cff',",
+
+"    secondary: '#448cff',",
+
+"    theme: 'dark'",
+
+"};",
+
+"",
+
+"function getInterfaceTheme() {",
+
+"    return interfaceSettings.theme;",
+
+"}",
+
+"",
+
+"function changeInterfaceTheme(theme) {",
+
+"    interfaceSettings.theme = theme;",
+
+"    return interfaceSettings.theme;",
+
+"}",
+
+"",
+
+"const contactInformation = {",
+
+"    discord: 'zddBHkumQ',",
+
+"    zalo: '84327978429'",
+
+"};",
+
+"",
+
+"function getDiscordContact() {",
+
+"    return contactInformation.discord;",
+
+"}",
+
+"",
+
+"function getZaloContact() {",
+
+"    return contactInformation.zalo;",
+
+"}",
+
+"",
+
+"function displayWelcomeMessage() {",
+
+"    return 'Welcome to Developer Studio';",
+
+"}",
+
+"",
+
+"function displayProjectMessage() {",
+
+"    return 'Explore our development projects';",
+
+"}",
+
+"",
+
+"function displayCodeMessage() {",
+
+"    return 'JavaScript source code';",
+
+"}",
+
+"",
+
+"const developmentTools = [",
+
+"    'JavaScript',",
+
+"    'HTML',",
+
+"    'CSS',",
+
+"    'Discord API',",
+
+"    'Web Development'",
+
+"];",
+
+"",
+
+"function getDevelopmentTools() {",
+
+"    return developmentTools;",
+
+"}",
+
+"",
+
+"function addDevelopmentTool(tool) {",
+
+"    developmentTools.push(tool);",
+
+"    return developmentTools;",
+
+"}",
+
+"",
+
+"function removeDevelopmentTool(tool) {",
+
+"    const index = developmentTools.indexOf(tool);",
+
+"    if (index !== -1) developmentTools.splice(index, 1);",
+
+"    return developmentTools;",
+
+"}",
+
+"",
+
+"const systemStatus = {",
+
+"    website: 'Operational',",
+
+"    sourceCode: 'Available',",
+
+"    development: 'Active',",
+
+"    developers: 2",
+
+"}",
+
+"",
+
+"function getSystemStatus() {",
+
+"    return systemStatus;",
+
+"}",
+
+"",
+
+"function isDevelopmentActive() {",
+
+"    return systemStatus.development === 'Active';",
+
+"}",
+
+"",
+
+"function createProjectReport() {",
+
+"    return {",
+
+"        creator: 'Trong Hieu',",
+
+"        partner: 'Dark',",
+
+"        status: 'Development',",
+
+"        year: 2026",
+
+"    };",
+
+"}",
+
+"",
+
+"function logDeveloperActivity(activity) {",
+
+"    console.log('[Developer Studio]', activity);",
+
+"}",
+
+"",
+
+"function logProjectActivity(project) {",
+
+"    console.log('[Project]', project);",
+
+"}",
+
+"",
+
+"function logBotActivity(command) {",
+
+"    console.log('[Discord Bot]', command);",
+
+"}",
+
+"",
+
+"const maintenanceSettings = {",
+
+"    enabled: true,",
+
+"    service: 'Annual',",
+
+"    developer: 'Dark'",
+
+"};",
+
+"",
+
+"function checkMaintenance() {",
+
+"    return maintenanceSettings.enabled;",
+
+"}",
+
+"",
+
+"function getMaintenanceDeveloper() {",
+
+"    return maintenanceSettings.developer;",
+
+"}",
+
+"",
+
+"const qualitySettings = {",
+
+"    performance: true,",
+
+"    functionality: true,",
+
+"    interface: true,",
+
+"    security: true",
+
+"};",
+
+"",
+
+"function checkQuality() {",
+
+"    return Object.values(qualitySettings).every(Boolean);",
+
+"}",
+
+"",
+
+"function createDevelopmentTask(name) {",
+
+"    return {",
+
+"        name: name,",
+
+"        assignedTo: 'Trong Hieu',",
+
+"        completed: false",
+
+"    };",
+
+"}",
+
+"",
+
+"function completeDevelopmentTask(task) {",
+
+"    task.completed = true;",
+
+"    return task;",
+
+"}",
+
+"",
+
+"function getCompletedTasks(tasks) {",
+
+"    return tasks.filter(task => task.completed);",
+
+"}",
+
+"",
+
+"function getPendingTasks(tasks) {",
+
+"    return tasks.filter(task => !task.completed);",
+
+"}",
+
+"",
+
+"const projectFeatures = {",
+
+"    customWebsite: true,",
+
+"    customBot: true,",
+
+"    commandSystem: true,",
+
+"    customInterface: true,",
+
+"    deployment: true",
+
+"};",
+
+"",
+
+"function getProjectFeatures() {",
+
+"    return Object.keys(projectFeatures);",
+
+"}",
+
+"",
+
+"function countProjectFeatures() {",
+
+"    return Object.keys(projectFeatures).length;",
+
+"}",
+
+"",
+
+"function getProjectFeatureStatus(feature) {",
+
+"    return projectFeatures[feature] === true;",
+
+"}",
+
+"",
+
+"function generateDeveloperSignature() {",
+
+"    return 'Developed by Trong Hieu & Dark';",
+
+"}",
+
+"",
+
+"function initializeApplication() {",
+
+"    initializeStudio();",
+
+"    logDeveloperActivity('Application initialized');",
+
+"    return true;",
+
+"}",
+
+"",
+
+"const finalConfiguration = {",
+
+"    studio: 'Developer Studio',",
+
+"    creator: 'Trong Hieu',",
+
+"    collaborator: 'Dark',",
+
+"    technology: 'JavaScript',",
+
+"    status: 'Ready'",
+
+"};",
+
+"",
+
+"console.log(finalConfiguration);",
+
+"console.log('Thank you for visiting Developer Studio');"
+
+];
+
+
+/* CREATE 200 UNIQUE LINES */
+
+while (codeLines.length < 200) {
+
+    const number = codeLines.length + 1;
+
+    const templates = [
+
+        `const developmentModule${number} = 'Developer Studio Module ${number}';`,
+
+        `function executeModule${number}() { return developmentModule${number}; }`,
+
+        `const developer${number} = 'Trong Hieu & Dark';`,
+
+        `const moduleStatus${number} = 'Active';`,
+
+        `console.log('Module ${number} initialized');`
+
+    ];
+
+    templates.forEach(line => {
+
+        if (codeLines.length < 200) {
+            codeLines.push(line);
+        }
+
+    });
+
+}
+
+
+/* DISPLAY CODE */
+
+const codeContent = document.getElementById('codeContent');
+
+codeLines.slice(0, 200).forEach((line, index) => {
+
+    const row = document.createElement('div');
+
+    row.className = 'code-line';
+
+    const number = document.createElement('span');
+
+    number.className = 'line-number';
+
+    number.textContent = index + 1;
+
+    const code = document.createElement('span');
+
+    code.className = 'code-text';
+
+    code.textContent = line || ' ';
+
+    if (line.trim().startsWith('//')) {
+        code.classList.add('code-comment');
+    }
+
+    row.appendChild(number);
+
+    row.appendChild(code);
+
+    codeContent.appendChild(row);
+
+});
+
+
+/* COPY SOURCE CODE */
+
+function copyCode() {
+
+    const fullCode = codeLines.slice(0, 200).join('\n');
+
+    navigator.clipboard.writeText(fullCode).then(() => {
+
+        const lang = localStorage.getItem('developerLanguage') || 'en';
+
+        alert(
+            lang === 'vi'
+            ? 'Đã sao chép 200 dòng code!'
+            : '200 lines of code copied successfully!'
+        );
+
+    }).catch(() => {
+
+        alert('Unable to copy code. Please try again.');
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
